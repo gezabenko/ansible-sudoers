@@ -1,5 +1,27 @@
 ---
 # tasks file for ansible-sudoers
+- name: Install package (Alpine Linux)...
+  become: true
+  community.general.apk:
+    name: "sudo"
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'Alpine'
+  tags:
+    - install
+    - alpine
+
+- name: Install package (Ubuntu Linux)...
+  become: true
+  ansible.builtin.apt:
+    name: "sudo"
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'Ubuntu'
+  tags:
+    - install
+    - ubuntu
+
 - name: Set sudoers settings...
   become: true
   community.general.sudoers:
