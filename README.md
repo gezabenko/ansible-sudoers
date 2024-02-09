@@ -19,7 +19,7 @@ sudoers_default__nopassword: false
 sudoers_default__state: "present"
 sudoers_default__sudoers_path: "/etc/sudoers.d/"
 sudoers_default__validation: "absent"
-sudoers:
+sudoers__group:
   - name: allow-backup
     state: present
     user: backup
