@@ -14,7 +14,7 @@
     sudoers_path: "{{ item.sudoers_path | default(sudoers_default__sudoers_path) | default(omit) }}"
     user: "{{ item.user | default(omit) }}"
     validation: "{{ item.validation | default(sudoers_default__validation) | default(omit) }}"
-  with_items: "{{ sudoers }}"
+  with_items: "{{ lookup('community.general.merge_variables', '^sudoers__.+') }}"
   tags:
     - config
     - setting
