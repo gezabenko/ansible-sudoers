@@ -15,7 +15,7 @@ Implemented all ansible module parameters, but only `name` variable is necessary
 
 ```yaml
 sudoers_default__host: "{{ ansible_nodename }}"
-sudoers_default__npassword: false
+sudoers_default__nopassword: false
 sudoers_default__state: "present"
 sudoers_default__sudoers_path: "/etc/sudoers.d/"
 sudoers_default__validation: "absent"
